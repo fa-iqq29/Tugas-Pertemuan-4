@@ -8,13 +8,7 @@ package pertemuankeempat;
  *
  * @author Faiq
  */
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
-import java.sql.DatabaseMetaData;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Scanner;
 
 public class Delete extends Koneksi {
@@ -121,3 +115,4 @@ public class Delete extends Koneksi {
             }
         }
     }
+
