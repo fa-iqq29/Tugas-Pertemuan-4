@@ -34,23 +34,28 @@ public class Read extends Koneksi {
             ResultSetMetaData rsMeta = rs.getMetaData();
             int jumlahKolom = rsMeta.getColumnCount();
 
-            while (rs.next()) {
-                StringBuilder hasilBaris = new StringBuilder();
+            if (!rs.isBeforeFirst()) {
+                System.out.println("Tabel " + namaTabel + " belum ada data");
+            } else {
+                while (rs.next()) {
+                    StringBuilder hasilBaris = new StringBuilder();
 
-                for (int i = 1; i <= jumlahKolom; i++) {
-                    hasilBaris.append(String.valueOf(rs.getObject(i)));
+                    for (int i = 1; i <= jumlahKolom; i++) {
+                        hasilBaris.append(String.valueOf(rs.getObject(i)));
 
-                    if (i < jumlahKolom) {
-                        hasilBaris.append(" | ");
+                        if (i < jumlahKolom) {
+                            hasilBaris.append(" | ");
+                        }
                     }
+                    System.out.println(hasilBaris.toString());
                 }
-                System.out.println(hasilBaris.toString());
             }
-
+            
         } catch (SQLException e) {
             System.out.println("Gagal melihat data: " + e.getMessage());
             e.printStackTrace();
         }
     }
 }
+
 
